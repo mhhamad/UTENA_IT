@@ -66,7 +66,11 @@ function drawMyGame() { //the function where all the game graphics will be drawn
     if (snakeX > 17 * BOX) {
         snakeX = 1 * BOX;
     } else if (snakeX < BOX) {
-        snakeX = 17 *BOX;
+        snakeX = 17 * BOX;
+    } else if (snakeY < 3 * BOX) {
+        snakeY = 17 * BOX;
+    } else if (snakeY > 17 * BOX) {
+        snakeY = 3 * BOX;
     }
 
     if (snakeX == food.x && snakeY == food.y) {
@@ -85,6 +89,16 @@ function drawMyGame() { //the function where all the game graphics will be drawn
         x: snakeX,
         y: snakeY
     }
+
+    for (let i = 0; i < snake.length; i++) {
+        if (newHead.x == snake[i].x && newHead.y == snake[i].y) {
+            clearInterval(game);
+            ctx.fillStyle = 'red';
+            ctx.fillText(`GAME OVER!`, 4.5 * BOX, 10 * BOX);
+        }
+    }
+
+
 
     snake.unshift(newHead);
 }
