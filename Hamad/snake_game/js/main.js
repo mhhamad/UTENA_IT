@@ -103,4 +103,4 @@ function drawMyGame() { //the function where all the game graphics will be drawn
     snake.unshift(newHead);
 }
 
-let game = setInterval(drawMyGame, 100); //refresh function for the graphics
+let game = setInterval(drawMyGame, 50); //refresh function for the graphics
